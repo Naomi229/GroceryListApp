@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185575068166",
+    "firebase_url": "https://grocerylist-d0567.firebaseio.com",
+    "project_id": "grocerylist-d0567",
+    "storage_bucket": "grocerylist-d0567.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185575068166:android:19f5142db0abf9d5796987",
+        "android_client_info": {
+          "package_name": "edu.fsega.grocerylist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185575068166-86o8bbqaigbr60puovjdcssepk065fb7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAggKZ6ehqx5HiuONvLZ9KfOKJa3UnuSjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185575068166-86o8bbqaigbr60puovjdcssepk065fb7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

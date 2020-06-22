@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             mc:Ignorable="d"
+             x:Class="GroceryList.Views.AddNewProductPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ScrollView Grid.Row="0">
+                <StackLayout>
+                    <Label Text="Name" HorizontalOptions="Start" />
+                    <Entry Text="{Binding ProductName}"  Placeholder="Product name"/>
+                    <Label Text="Quantity" HorizontalOptions="Start"/>
+                    <Entry Text="{Binding Quantity}" Placeholder="Quantity" Keyboard="Numeric"/>
+                    <Entry Text="{Binding StoreName}" 
+                           TextChanged="Entry_TextChanged" 
+                           Placeholder="Enter store name or put a pin on map"/>
+                </StackLayout>
+            </ScrollView>
+
+            <maps:Map x:Name="Map" MapType="Street" MapClicked="Map_MapClicked" Grid.Row="2" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                               Grid.Row="1"
+                               HorizontalOptions="Center"/>
+            <Button 
+                Grid.Row="3"
+                Text="Save" 
+                Command="{Binding SaveProduct}" 
+                Margin="0,0,20,20"
+                VerticalOptions="End"
+                HorizontalOptions="Center"/>
+
+        </Grid>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:MVVMExample.ViewModel.Behaviors"
+             mc:Ignorable="d"
+             x:Class="GroceryList.Views.ShowProductsPage"
+             x:Name="ShowProduct"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+           
+
+            <StackLayout>
+                    <ListView ItemsSource="{Binding ProductList}" SelectedItem="{Binding SelectedProduct}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10" RowSpacing="2" ColumnSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Text="{Binding Name}" Grid.Column="0" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" Grid.Column="1" VerticalOptions="Center" />
+                                    <CheckBox IsChecked="{Binding Bought}" IsEnabled="False" Grid.Column="2" VerticalOptions="Center" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.Behaviors>
+                        <local:ItemSelectedToCommandBehaviors Command="{Binding SelectedProdutCommand}"  />
+                    </ListView.Behaviors>
+
+                </ListView>
+                </StackLayout>
+
+            
+                <Button 
+                Command="{Binding CreateNewProductCommand}"
+                    Grid.Row="0" 
+                    Text="+" 
+                    FontSize="Large"
+                    FontAttributes="Bold" 
+                    BackgroundColor="#FF4081" 
+                    BorderRadius="100" 
+                    TextColor="White" 
+                    HorizontalOptions="End" 
+                    WidthRequest="70" 
+                    HeightRequest="70" 
+                    Margin="0,0,20,20" 
+                    VerticalOptions="End"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
